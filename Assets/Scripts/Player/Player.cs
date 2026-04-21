@@ -1,9 +1,11 @@
 using UnityEngine;
+using DG.Tweening;
 
 public class Player : MonoBehaviour
 {
-    public Rigidbody2D rigidbody;
+    public Rigidbody2D playerRigidbody;
 
+    [Header("Speed Setup")]
     public float speed = 5f;
     public float speedRun = 25f;
     private float _currentSpeed;
@@ -11,6 +13,12 @@ public class Player : MonoBehaviour
     public Vector2 friction = new(0.1f, 0);
 
     public float forceJump = 3f;
+
+    [Header("Animation Setup")]
+    public float jumpScaleX = 0.7f;
+    public float jumpScaleY = 1.5f;
+    public float animationDuration = 0.3f;
+    public Ease ease = Ease.OutBack;
 
     void Update()
     {
@@ -20,7 +28,7 @@ public class Player : MonoBehaviour
 
     void HandleMovement()
     {
-        if (Input.GetKey(KeyCode.LeftControl))
+        if (Input.GetKey(KeyCode.LeftShift))
         {
             _currentSpeed = speedRun;
         }
@@ -32,21 +40,21 @@ public class Player : MonoBehaviour
         // Captação de input e aplicação de velocidade ao personagem
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            rigidbody.velocity = new Vector2(-_currentSpeed, rigidbody.velocity.y);
+            playerRigidbody.velocity = new Vector2(-_currentSpeed, playerRigidbody.velocity.y);
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
-            rigidbody.velocity = new Vector2(_currentSpeed, rigidbody.velocity.y);
+            playerRigidbody.velocity = new Vector2(_currentSpeed, playerRigidbody.velocity.y);
         }
 
         // Aplicação de fricção ao personagem
-        if (rigidbody.velocity.x > 0)
+        if (playerRigidbody.velocity.x > 0)
         {
-            rigidbody.velocity += friction;
+            playerRigidbody.velocity += friction;
         }
-        else if (rigidbody.velocity.x < 0)
+        else if (playerRigidbody.velocity.x < 0)
         {
-            rigidbody.velocity -= friction;
+            playerRigidbody.velocity -= friction;
         }
     }
 
@@ -54,7 +62,18 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            rigidbody.velocity = Vector2.up * forceJump;
+            playerRigidbody.velocity = Vector2.up * forceJump;
+            playerRigidbody.transform.localScale = Vector2.one;
+
+            DOTween.Kill(playerRigidbody.transform);
+
+            HandleScaleJump();
         }
+    }
+
+    void HandleScaleJump()
+    {
+        playerRigidbody.transform.DOScaleY(jumpScaleY, animationDuration).SetLoops(2, LoopType.Yoyo).SetEase(ease);
+        playerRigidbody.transform.DOScaleX(jumpScaleX, animationDuration).SetLoops(2, LoopType.Yoyo).SetEase(ease);
     }
 }
