@@ -20,6 +20,11 @@ public class Player : MonoBehaviour
     public float animationDuration = 0.3f;
     public Ease ease = Ease.OutBack;
 
+    [Header("Animation player")]
+    public float playerSwipeDuration = 0.1f;
+    public string boolRun = "Run";
+    public Animator animator;
+
     void Update()
     {
         HandleJump();
@@ -31,20 +36,38 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift))
         {
             _currentSpeed = speedRun;
+            animator.speed = 2;
         }
         else
         {
             _currentSpeed = speed;
+            animator.speed = 1;
         }
 
         // Captação de input e aplicação de velocidade ao personagem
         if (Input.GetKey(KeyCode.LeftArrow))
         {
+            animator.SetBool(boolRun, true);
             playerRigidbody.velocity = new Vector2(-_currentSpeed, playerRigidbody.velocity.y);
+
+            if (playerRigidbody.transform.localScale.x != -1)
+            {
+                playerRigidbody.transform.DOScaleX(-1, playerSwipeDuration);
+            }
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
+            animator.SetBool(boolRun, true);
             playerRigidbody.velocity = new Vector2(_currentSpeed, playerRigidbody.velocity.y);
+
+            if (playerRigidbody.transform.localScale.x != 1)
+            {
+                playerRigidbody.transform.DOScaleX(1, playerSwipeDuration);
+            }
+        }
+        else
+        {
+            animator.SetBool(boolRun, false);
         }
 
         // Aplicação de fricção ao personagem
