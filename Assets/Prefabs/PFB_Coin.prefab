@@ -92,8 +92,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1113953346834001732}
   - component: {fileID: 2362216520278357954}
+  - component: {fileID: 5990961232051469181}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -166,3 +167,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!210 &5990961232051469181
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1824217798180344114}
+  m_Enabled: 1
+  m_SortingLayerID: -1926332227
+  m_SortingLayer: 2
+  m_SortingOrder: 1
+  m_SortAtRoot: 0
