@@ -26,5 +26,7 @@ public class ProjectileBase : MonoBehaviour
         {
             enemy.Damage(damageAmount);
         }
+
+        Destroy(gameObject);
     }
 }
