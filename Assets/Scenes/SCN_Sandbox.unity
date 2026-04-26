@@ -493,7 +493,7 @@ Transform:
   m_GameObject: {fileID: 240816091}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23.5, y: -9.35, z: 0}
+  m_LocalPosition: {x: 23.5, y: -10.49, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -560,7 +560,9 @@ MonoBehaviour:
   damage: 1
   animator: {fileID: 2057448443}
   triggerAttack: Attack
+  triggerKill: Death
   healthBase: {fileID: 240816096}
+  timeToDestroy: 1
 --- !u!50 &240816095
 Rigidbody2D:
   serializedVersion: 4
@@ -600,7 +602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b81531e8a74950b43b5d5acaab193373, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyOnKill: 1
+  destroyOnKill: 0
   delayToKill: 2
   startLife: 10
   flashColor: {fileID: 240816097}
@@ -687,6 +689,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8835229685202505509, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
       insertIndex: -1
       addedObject: {fileID: 415638323}
+    - targetCorrespondingSourceObject: {fileID: 8835229685202505509, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 415638324}
   m_SourcePrefab: {fileID: 100100000, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
 --- !u!1 &282058844
 GameObject:
@@ -781,10 +786,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 290385080}
-  - component: {fileID: 290385078}
-  - component: {fileID: 290385077}
   - component: {fileID: 290385081}
   - component: {fileID: 290385082}
+  - component: {fileID: 290385078}
+  - component: {fileID: 290385077}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -903,7 +908,9 @@ MonoBehaviour:
   ease: 27
   playerSwipeDuration: 0.1
   boolRun: Run
+  triggerDeath: Death
   animator: {fileID: 292857095}
+  healthBase: {fileID: 290385082}
 --- !u!114 &290385082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1301,6 +1308,19 @@ MonoBehaviour:
   - {fileID: 1760344859}
   color: {r: 1, g: 0.39215687, b: 0.39215687, a: 1}
   duration: 0.12
+--- !u!114 &415638324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415638321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c3ed9c78b2fbb74cab692dc565a080b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 290385081}
 --- !u!212 &430131657 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 4546307769011690981, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
@@ -5030,7 +5050,7 @@ GameObject:
   - component: {fileID: 2044944939}
   - component: {fileID: 2044944938}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: CoinCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5477,6 +5497,7 @@ GameObject:
   - component: {fileID: 2089515378}
   - component: {fileID: 2089515377}
   - component: {fileID: 2089515376}
+  - component: {fileID: 2089515380}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -5567,6 +5588,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &2089515380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089515375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f269d7087d614094b87cccaba318515e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinCounterText: {fileID: 2044944938}
 --- !u!212 &2097205789 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 4058282757918593861, guid: 3de838754c767a446a5473969062a84e, type: 3}
