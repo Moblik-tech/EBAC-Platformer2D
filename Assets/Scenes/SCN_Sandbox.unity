@@ -1113,7 +1113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ef4377db7e0e5341979e193113829de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coins: 0
+  coins: {fileID: 11400000, guid: 59364b28efc5b1b4b8b5c43c48761bab, type: 2}
 --- !u!4 &404442052
 Transform:
   m_ObjectHideFlags: 0
@@ -5095,6 +5095,7 @@ GameObject:
   - component: {fileID: 2044944937}
   - component: {fileID: 2044944939}
   - component: {fileID: 2044944938}
+  - component: {fileID: 2044944940}
   m_Layer: 5
   m_Name: CoinCounter
   m_TagString: Untagged
@@ -5218,6 +5219,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2044944936}
   m_CullTransparentMesh: 1
+--- !u!114 &2044944940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044944936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce648583dd3fa7344b0c691eae0fdd1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soInt: {fileID: 11400000, guid: 59364b28efc5b1b4b8b5c43c48761bab, type: 2}
+  uiTextValue: {fileID: 2044944938}
 --- !u!1001 &2057448440
 PrefabInstance:
   m_ObjectHideFlags: 0

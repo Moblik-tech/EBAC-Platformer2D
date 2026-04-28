@@ -2,7 +2,7 @@ using Moblik.Core.Singleton;
 
 public class ItemManager : Singleton<ItemManager>
 {
-    public int coins;
+    public SOInt coins;
 
     void Start()
     {
@@ -11,17 +11,17 @@ public class ItemManager : Singleton<ItemManager>
 
     void Reset()
     {
-        coins = 0;
+        coins.value = 0;
     }
 
     public void AddCoins(int amount = 1)
     {
-        coins += amount;
+        coins.value += amount;
         UpdateUI();
     }
 
     void UpdateUI()
     {
-        UIInGameManager.Instance.UpdateTextCoins(coins.ToString());
+        //UIInGameManager.Instance.UpdateTextCoins(coins.value.ToString());
     }
 }
