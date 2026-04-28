@@ -1,10 +1,8 @@
 using Moblik.Core.Singleton;
-using TMPro;
 
 public class ItemManager : Singleton<ItemManager>
 {
     public int coins;
-    public TextMeshProUGUI uiTextCoins;
 
     void Start()
     {
@@ -24,6 +22,6 @@ public class ItemManager : Singleton<ItemManager>
 
     void UpdateUI()
     {
-        uiTextCoins.text = "x " + coins.ToString();
+        UIInGameManager.Instance.UpdateTextCoins(coins.ToString());
     }
 }
