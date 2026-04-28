@@ -4,8 +4,6 @@ public class ItemCollectableBase : MonoBehaviour
 {
     public string compareTag = "Player";
 
-    private CoinCounter _coinCounter;
-
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.transform.CompareTag(compareTag))
@@ -22,7 +20,6 @@ public class ItemCollectableBase : MonoBehaviour
 
     protected virtual void OnCollect()
     {
-        _coinCounter = FindFirstObjectByType<CoinCounter>();
-        _coinCounter.UpdateCoinCounter();
+
     }
 }
