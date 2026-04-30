@@ -905,6 +905,9 @@ MonoBehaviour:
   jumpScaleX: 0.7
   jumpScaleY: 1.1
   animationDuration: 0.3
+  soJumpScaleY: {fileID: 11400000, guid: 5fade43c3896bfa4eb1e6b49d5d7c9bd, type: 2}
+  soJumpScaleX: {fileID: 11400000, guid: 58a9f5eb0d08bca42acd28f94b3f96f9, type: 2}
+  soAnimationDuration: {fileID: 11400000, guid: 722ba4c826c68fd42a8c2d4cb2f94133, type: 2}
   ease: 27
   playerSwipeDuration: 0.1
   boolRun: Run
