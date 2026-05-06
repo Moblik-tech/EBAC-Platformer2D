@@ -5,12 +5,13 @@ public class Player : MonoBehaviour
 {
     [Header("Setup")]
     public Rigidbody2D playerRigidbody;
-    public Animator animator;
+    //public Animator animator;
     public HealthBase healthBase;
 
     public SOPlayerSetup sOPlayerSetup;
 
     private float _currentSpeed;
+    private Animator _currentPlayer;
 
     private void Awake()
     {
@@ -18,13 +19,15 @@ public class Player : MonoBehaviour
         {
             healthBase.OnKill += OnPlayerKill;
         }
+
+        _currentPlayer = Instantiate(sOPlayerSetup.playerAnimator, transform);
     }
 
     void OnPlayerKill()
     {
         healthBase.OnKill -= OnPlayerKill;
 
-        animator.SetTrigger(sOPlayerSetup.triggerDeath);
+        _currentPlayer.SetTrigger(sOPlayerSetup.triggerDeath);
     }
 
     void Update()
@@ -38,18 +41,18 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift))
         {
             _currentSpeed = sOPlayerSetup.speedRun;
-            animator.speed = 2;
+            _currentPlayer.speed = 2;
         }
         else
         {
             _currentSpeed = sOPlayerSetup.speed;
-            animator.speed = 1;
+            _currentPlayer.speed = 1;
         }
 
         // Captação de input e aplicação de velocidade ao personagem
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            animator.SetBool(sOPlayerSetup.boolRun, true);
+            _currentPlayer.SetBool(sOPlayerSetup.boolRun, true);
             playerRigidbody.velocity = new Vector2(-_currentSpeed, playerRigidbody.velocity.y);
 
             if (playerRigidbody.transform.localScale.x != -1)
@@ -59,7 +62,7 @@ public class Player : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
-            animator.SetBool(sOPlayerSetup.boolRun, true);
+            _currentPlayer.SetBool(sOPlayerSetup.boolRun, true);
             playerRigidbody.velocity = new Vector2(_currentSpeed, playerRigidbody.velocity.y);
 
             if (playerRigidbody.transform.localScale.x != 1)
@@ -69,7 +72,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            animator.SetBool(sOPlayerSetup.boolRun, false);
+            _currentPlayer.SetBool(sOPlayerSetup.boolRun, false);
         }
 
         // Aplicação de fricção ao personagem

@@ -4,6 +4,8 @@ using DG.Tweening;
 [CreateAssetMenu]
 public class SOPlayerSetup : ScriptableObject
 {
+    public Animator playerAnimator;
+
     [Header("Speed Setup")]
     public float speed = 5f;
     public float speedRun = 25f;
