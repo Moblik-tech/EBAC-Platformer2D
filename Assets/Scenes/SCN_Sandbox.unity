@@ -898,22 +898,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRigidbody: {fileID: 290385078}
-  speed: 15
-  speedRun: 28
-  friction: {x: -0.3, y: 0}
-  forceJump: 25
-  jumpScaleX: 0.7
-  jumpScaleY: 1.1
-  animationDuration: 0.3
-  soJumpScaleY: {fileID: 11400000, guid: 5fade43c3896bfa4eb1e6b49d5d7c9bd, type: 2}
-  soJumpScaleX: {fileID: 11400000, guid: 58a9f5eb0d08bca42acd28f94b3f96f9, type: 2}
-  soAnimationDuration: {fileID: 11400000, guid: 722ba4c826c68fd42a8c2d4cb2f94133, type: 2}
-  ease: 27
-  playerSwipeDuration: 0.1
-  boolRun: Run
-  triggerDeath: Death
   animator: {fileID: 292857095}
   healthBase: {fileID: 290385082}
+  sOPlayerSetup: {fileID: 11400000, guid: 70bd895f033144a4a80828f099b63860, type: 2}
 --- !u!114 &290385082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5664,7 +5651,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f269d7087d614094b87cccaba318515e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinCounterText: {fileID: 2044944938}
 --- !u!212 &2097205789 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 4058282757918593861, guid: 3de838754c767a446a5473969062a84e, type: 3}
