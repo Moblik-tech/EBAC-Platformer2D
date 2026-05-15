@@ -132,7 +132,7 @@ MonoBehaviour:
   prefabProjectile: {fileID: 4392811647256626413, guid: e2e006f546c61ca49a42f35780f5d877, type: 3}
   positionToShoot: {fileID: 527323558778267492}
   timeBetweenShoot: 0.1
-  playerSideReference: {fileID: 0}
+  playerSideReference: {fileID: 8007466312498025151}
 --- !u!1 &2197754635599820994
 GameObject:
   m_ObjectHideFlags: 0
