@@ -5,6 +5,7 @@ using DG.Tweening;
 public class SOPlayerSetup : ScriptableObject
 {
     public Animator playerAnimator;
+    public SOString sOPlayerName;
 
     [Header("Speed Setup")]
     public float speed = 5f;
