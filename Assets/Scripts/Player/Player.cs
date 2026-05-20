@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     public Collider2D collider2D;
     public float distToGround;
     public float spaceToGround = 0.1f;
-    public ParticleSystem jumpVFX;
+    public ParticleSystem dustVFX;
 
     private void Awake()
     {
@@ -36,7 +36,6 @@ public class Player : MonoBehaviour
 
     private bool IsGrounded()
     {
-        Debug.DrawRay(transform.position, -Vector2.up, Color.yellow, distToGround + spaceToGround);
         return Physics2D.Raycast(transform.position, -Vector2.up, distToGround + spaceToGround);
     }
 
@@ -102,6 +101,15 @@ public class Player : MonoBehaviour
         {
             playerRigidbody.velocity -= sOPlayerSetup.friction;
         }
+
+        if (IsGrounded())
+        {
+            dustVFX.gameObject.SetActive(true);
+        }
+        else
+        {
+            dustVFX.gameObject.SetActive(false);
+        }
     }
 
     void HandleJump()
@@ -120,10 +128,7 @@ public class Player : MonoBehaviour
 
     void PlayJumpVFX()
     {
-        if (jumpVFX != null)
-        {
-            jumpVFX.Play();
-        }
+        VFXManager.Instance.PlayVFXByType(VFXManager.VFXType.JUMP, transform.position);
     }
 
     void HandleScaleJump()
