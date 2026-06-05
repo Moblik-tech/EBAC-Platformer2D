@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class AudioChanceVolume : MonoBehaviour
+public class AudioChangeVolume : MonoBehaviour
 {
     public AudioMixer audioMixer;
     public string floatParam = "MyExposedParam";
